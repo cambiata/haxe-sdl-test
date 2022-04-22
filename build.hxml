@@ -1,4 +1,10 @@
 -cp src
 -D analyzer-optimize
 -main Main
---interp
+-cpp out
+
+-D no-debug
+
+--cmd cls
+--cmd cd out
+--cmd Main.exe
