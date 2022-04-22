@@ -51,7 +51,7 @@ Make also sure that the `src/Sdl.hx` and `src/SDLSupport.h` files have the mac p
 
 If you are on mac, make sure to download the [SDL2-2.0.20.dmg](https://libsdl.org/release/SDL2-2.0.20.dmg) (or whatever current version is), and copy the the `SDL2.framework` folder into the `/Library/Frameworks/` folder on your computer.
 
-Make also sure that the `src/Sdl.hx` and `src/SDLSupport.h` files have the mac paths commented out:
+Make also sure that the `src/Sdl.hx` and `src/SDLSupport.h` files have the windows paths commented out:
 
 ```haxe
 // src/Sdl.hx
