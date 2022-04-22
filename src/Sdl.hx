@@ -1,10 +1,13 @@
 import cpp.ConstCharStar;
 
 @:include("./SDLSupport.h")
+
 // Windows:
-@:buildXml('<target id="haxe"><lib name="../../SDL2-2.0.3/lib/x86/SDL2.lib"/></target>')
+@:buildXml('<target id="haxe"><lib name="../../SDL2-2.0.20/lib/x86/SDL2.lib"/></target>')
+
 // macOS:
 // @:buildXml('<target id="haxe"><lib name="/Library/Frameworks/SDL2.framework/Versions/A/SDL2"/></target>')
+
 extern class Sdl {
 	@:native("SDL_INIT_EVERYTHING")
 	static var INIT_EVERYTHING(default, null):InitFlag;
