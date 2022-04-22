@@ -1,4 +1,5 @@
-import Sdl.SdlEvent;
+import Sdl.EventType;
+import Sdl.Event;
 
 class Main {
 	static function main() {
@@ -12,28 +13,35 @@ class Main {
 		Sdl.renderClear(ren);
 		Sdl.renderCopy(ren, tex, cast 0, cast 0);
 		Sdl.renderPresent(ren);
-		var e:SdlEvent;
+		eventLoop((eventType:EventType) -> {
+			return switch eventType {
+				case SDL_QUIT:
+					true; // casues program quit
+				default:
+					switch eventType {
+						case SDL_MOUSEBUTTONDOWN:
+							trace('mouse button down');
+						case SDL_KEYDOWN:
+							trace('keydown');
+						default:
+					}
+					false; // keep program going
+			}
+		});
+		Sdl.destroyWindow(win);
+		Sdl.quit();
+	}
+
+	static function eventLoop(eventLoopCallback:EventType->Bool) {
+		var e:Event;
 		var quit:Bool = false;
 		while (!quit) {
 			untyped __cpp__('
 			while (SDL_PollEvent(&e))
 			{
-				if (e.type == SDL_QUIT)
-				{
-					quit = true;
-				}
-				if (e.type == SDL_KEYDOWN)
-				{
-					quit = true;
-				}
-				if (e.type == SDL_MOUSEBUTTONDOWN)
-				{
-					quit = true;
-				}
+				quit = eventLoopCallback(e.type);
 			}
-		');
+			');
 		}
-		Sdl.destroyWindow(win);
-		Sdl.quit();
 	}
 }
