@@ -1,9 +1,9 @@
-# Haxe project
+# haxe-sdl-test
 
-This is an example Haxe project scaffolded by Visual Studio Code.
+Experimental library for learning more about Haxe c++ target.
 
-Without further changes the structure is following:
+Using the following recources:
+Dan Korostelev's https://gist.github.com/nadako/c8aec20c2a7751348f91
+Nicolas Cannasse's https://github.com/ncannasse/hxsdl
+https://github.com/snowkit/linc_sdl
 
- * `src/Main.hx`: Entry point Haxe source file
- * `build.hxml`: Haxe command line file used to build the project
- * `README.md`: This file
