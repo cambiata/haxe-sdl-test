@@ -1,7 +1,8 @@
 import cpp.ConstCharStar;
 
 @:include("./SDLSupport.h")
-@:buildXml('<target id="haxe"><lib name="../../SDL2-2.0.3/lib/x86/SDL2.lib"/></target>')
+// @:buildXml('<target id="haxe"><lib name="../../SDL2-2.0.3/lib/x86/SDL2.lib"/></target>')
+@:buildXml('<target id="haxe"><lib name="/Library/Frameworks/SDL2.framework/Versions/A/SDL2"/></target>')
 extern class Sdl {
 	@:native("SDL_INIT_EVERYTHING")
 	static var INIT_EVERYTHING(default, null):InitFlag;
@@ -21,6 +22,9 @@ extern class Sdl {
 
 	@:native("SDL_CreateWindow")
 	static function createWindow(title:ConstCharStar, x:Int, y:Int, w:Int, h:Int, flags:CreateWindowFlag):WindowPointer;
+
+	@:native("SDL_DestroyWindow")
+	static function destroyWindow(window:WindowPointer):Void;
 
 	@:native("SDL_CreateRenderer")
 	static function createRenderer(win:WindowPointer, index:Int, flags:CreateRendererFlag):RendererPointer;
@@ -42,6 +46,9 @@ extern class Sdl {
 
 	@:native("SDL_RenderPresent")
 	static function renderPresent(renderer:RendererPointer):Void;
+
+	@:native("SDL_Quit")
+	static function quit():Void;
 
 	@:native("SDL_Delay")
 	static function delay(ms:cpp.UInt32):Void;
@@ -73,3 +80,6 @@ extern class TexturePointer {}
 
 @:native("::cpp::Reference<SDL_Rect>")
 extern class RectPointer {}
+
+@:native("SDL_Event")
+extern class SdlEvent {}
