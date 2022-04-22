@@ -1,15 +1,15 @@
 -cp src
 # -D analyzer-optimize
+-D no-debug
 -main Main
 -cpp out
 
--D no-debug
 
 # WINDOWS
-# --cmd cls
-# --cmd cd out
-# --cmd Main.exe
+--cmd cls
+--cmd cd out
+--cmd Main.exe
 
 # MAC
---cmd clear
---cmd out/Main
+# --cmd clear
+# --cmd out/Main
