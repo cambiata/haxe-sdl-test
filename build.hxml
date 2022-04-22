@@ -6,9 +6,9 @@
 
 
 # WINDOWS
---cmd cls
---cmd cd out
---cmd Main.exe
+# --cmd cls
+# --cmd cd out
+# --cmd Main.exe
 
 # MAC
 # --cmd clear
